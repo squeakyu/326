@@ -23,7 +23,11 @@
     "url": ""
   },
   "contributors": [
-
+    "Willy Chen",
+    "Wesley Lathrop",
+    "Matthew Chung",
+    "Richard Lu",
+    "Steven Tan"
   ],
   "scripts": {
     "dev": "",
