@@ -23,11 +23,11 @@
     "url": ""
   },
   "contributors": [
-    "Willy Chen",
-    "Wesley Lathrop",
-    "Matthew Chung",
-    "Richard Lu",
-    "Steven Tan"
+    "Willy Chen, willychen@umass.edu",
+    "Wesley Lathrop, wlathrop@umass.edu",
+    "Matthew Chung, matthewchung@umass.edu",
+    "Richard Lu, richardlu@umass.edu",
+    "Steven Tan, steventan@umass.edu"
   ],
   "scripts": {
     "milestone-01": "http-server src/docs/milestone-01 -p 3000 -c-1 -o -s",
