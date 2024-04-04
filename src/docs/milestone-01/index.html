@@ -12,6 +12,7 @@
 <body>
     <header>
         <!-- Navigation bar, logo, etc. -->
+        <img src="images/fittrac.png" alt="FitTrac Logo">
     </header>
 
     <nav>
@@ -32,11 +33,23 @@
             <div id="overview">
                 <h2>Project Overview</h2>
                 <p>
-                    FitTrac is an interactive and comprehensive web application with the users’ goals in mind. No matter your fitness level or experience, this application will have utility for anyone ranging from casual gym goers, advanced powerlifters, or even aerobic athletes such as long-distance runners. This application will be designed to help users track their workouts, fitness activities, set fitness goals, and track their progress on visual charts over time. The platform will also include a social section where users can share their links with other users to share workouts and progress. We aim to provide a personalized experience for users to achieve their fitness goals, whether it be shedding some pounds, getting swole, or improving their aerobic endurance. 
+                    FitTrac is an interactive and comprehensive web application with the users’ goals in mind. No matter your fitness level or experience, this application will have utility for anyone ranging from casual gym goers, advanced powerlifters, or even aerobic athletes such as long-distance runners. This application will be designed to help users track their workouts, fitness activities, set fitness goals, and track their progress on visual charts over time. The platform will also include a social section where users can share their links with other users to share workouts and progress. We aim to provide a personalized experience for users to achieve their fitness goals, whether it be shedding some pounds, getting swole, or improving their aerobic endurance.
                 </p>
             </div>
             <div id="application-parts">
                 <h2>Application Parts</h2>
+                <p><b>Workout Tracker:</b></p>
+                <p>
+                    The fitness and workout tracker enables users to record their workouts, both standard and customized, covering various types such as strength or aerobic exercises. This feature enables users to monitor their fitness progression effectively.
+                </p>
+                <p><b>Goal Setter:</b></p>
+                <p>
+                    The fitness goal-setting function permits users to establish personalized objectives tailored to their individual requirements, whether it's building muscle, enhancing endurance, or shedding weight. It visually represents progress via graphs, fostering user accountability and ensuring they stay on track towards achieving their goals.
+                </p>
+                <p><b>Social Sharing:</b></p>
+                <p>
+                    The platform facilitates user interaction through various features, including a social feed for sharing workouts and progress updates. Users can follow others and provide feedback on their shared workouts, fostering a sense of community and motivation to achieve fitness goals.
+                </p>
             </div>
             <div id="data-requirements">
                 <h2>Data Requirements</h2>
@@ -69,35 +82,40 @@
                 <p>
                     The Home Page wireframe is designed to be inviting, and showcase the main features of the program. These being the user’s interactive list of saved workouts, and the chart which highlights the user’s logged exercise over time. Additionally, there are paths to both create a new workout list, view an existing workout list, and log an exercise.
                 </p>
-                <img src="Home View.png"
+                <img src="images/homeview.png"
+                     alt="Home View"
                      width="600"
                      height="400">
                 <p><b>Workout View:</b></p>
                 <p>
                     Once the user clicks the view button on a workout element in the saved workouts list, this view is shown. Here, the user is shown all of the exercise elements and their attributes. Additionally, they are given the option to edit the workout, or return back to the home page.
                 </p>
-                <img src="workoutview.png"
+                <img src="images/workoutview.png"
+                     alt="Workout View"
                      width="600"
                      height="400">
                 <p><b>Edit Workout Page:</b></p>
                 <p>
-                    Clicking the “Create New Workout” on the Home Page, or the “Edit Workout” button on the Workout View Page brings the user to this view. Here, the user sees the current exercise elements, and is given the option to add a new exercise, edit or delete an existing exercise, change the name of the workout, or save the workout to the saved workouts list. 
+                    Clicking the “Create New Workout” on the Home Page, or the “Edit Workout” button on the Workout View Page brings the user to this view. Here, the user sees the current exercise elements, and is given the option to add a new exercise, edit or delete an existing exercise, change the name of the workout, or save the workout to the saved workouts list.
                 </p>
-                <img src="editor.png"
+                <img src="images/editor.png"
+                     alt="Editor"
                      width="600"
                      height="400">
                 <p><b>Exercise Editor/Creator:</b></p>
                 <p>
-                  	This view is activated whenever the user decides to add a new exercise, or edit an existing exercise in the Edit Workout View. Each exercise element has a type(cardio, strength, etc.), exercise name, number of sets, number of reps or time per set, and a distance/weight attribute. Once the information is entered, the user can save the exercise to the selected workout.  
+                  	This view is activated whenever the user decides to add a new exercise, or edit an existing exercise in the Edit Workout View. Each exercise element has a type(cardio, strength, etc.), exercise name, number of sets, number of reps or time per set, and a distance/weight attribute. Once the information is entered, the user can save the exercise to the selected workout.
                 </p>
-                <img src="addexercise.png"
+                <img src="images/addexercise.png"
+                     alt="Add Exersise"
                      width="600"
                      height="400">
                 <p><b>Log Exercise:</b></p>
                 <p>
                     When the user clicks the “Log Exercise” button on the Home Page, the user is sent here. Each log element is similar to the exercise elements above, however, instead of the number of sets and weight attributes, the log element has duration and date attributes. These are used to create the “Activity over Time” chart. Once the fields are entered, the user can save their log, and see it shown in the chart on the Home Page.
                 </p>
-                <img src="logging.png"
+                <img src="images/logging.png"
+                     alt="Logging View"
                      width="600"
                      height="400">
             </div>
@@ -140,9 +158,9 @@
             <!-- Related content or subsections -->
             <h2>Our Team</h2>
             <div id="teamMemberDisplay">
-                <img src="" id="memberImage" alt="Team Member" width="250" height="250">
+                <img src="placeholder" id="memberImage" alt="Team Member" width="250" height="250">
                 <p id="memberDescription"></p>
-                <button id="nextMemberBtn">Next</button>
+                <button type="button" id="nextMemberBtn">Next</button>
             </div>
         </section>
         <aside>
@@ -155,3 +173,4 @@
     </footer>
 </body>
 </html>
+
