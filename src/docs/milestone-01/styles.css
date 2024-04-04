@@ -15,6 +15,10 @@
   margin-bottom: 20px; /* Adds bottom margin for spacing below the heading */
 }
 
+#wire-frames {
+  text-align: center; /* Centers text within the section */
+}
+
 /* Continuing with your existing dark mode theme adjustments */
 .wrapper {
   border: 5px dotted black;
