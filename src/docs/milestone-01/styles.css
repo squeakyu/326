@@ -47,11 +47,11 @@ a {
 }
 
 nav {
-  background: #333333;
+  background: #121212;
 }
 
 footer {
-  background-color: #333333;
+  background-color: #121212;
 }
 
 @media screen and (max-width: 768px) {
@@ -67,3 +67,20 @@ footer {
       font-size: 20px;
   }
 }
+
+.btn {
+  color: white;
+  background-color: #4169E1;
+  margin: 0.5em;
+  height: 2em;
+  width: 2em;
+  padding: 0.5em;
+  border: 0.5 solid black;
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: #b927fd;
+}
+
+
