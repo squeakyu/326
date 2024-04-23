@@ -18,10 +18,18 @@ document.addEventListener("DOMContentLoaded", () => {
     document
       .getElementById("about")
       .addEventListener("click", () => navigate("aboutView"));
-  
+    document.getElementById("createWorkoutBtn").addEventListener("click", () => navigate("createWorkoutView"));
     // Initialize with the home view
     navigate("homeView");
-  
+    
+    document.getElementById("workoutForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        const workoutName = document.getElementById("workoutName").value;
+        const workoutType = document.getElementById("workoutType").value;
+        saveWorkout(workoutName, workoutType);
+        alert("Workout Saved!");
+        navigate("homeView"); // Return to home after saving
+    });
     // Assuming your images are within a container with the class
     // 'image-container'
     document.querySelectorAll(".image-container img").forEach((img) => {
@@ -32,3 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   
+
+function saveWorkout(name, type) {
+    // Here you can integrate PouchDB for actual data storage
+    console.log("Saving workout:", name, type);
+    // Mocking a save operation
+}

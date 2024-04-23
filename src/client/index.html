@@ -12,6 +12,7 @@
         <button id="home">Home</button>
         <button id="profile">Profile</button>
         <button id="about">About</button>
+        <button id="createWorkoutBtn">Create Workout</button>
     </nav>
 
     <div id="views">
@@ -36,6 +37,16 @@
                 <img src="./fittrac.png" alt="App Logo" width="250" style="border-radius:8px;">
             </div>
         </div>
+        <div id="createWorkoutView" class="view" style="display:none">
+          <h1>Create Your Workout</h1>
+          <form id="workoutForm">
+              <label for="workoutName">Workout Name:</label>
+              <input type="text" id="workoutName" name="workoutName" required><br><br>
+              <label for="workoutType">Workout Type:</label>
+              <input type="text" id="workoutType" name="workoutType" required><br><br>
+              <button type="submit">Save Workout</button>
+          </form>
+      </div>
     </div>
     </div>
 </body>
