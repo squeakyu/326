@@ -9,6 +9,11 @@ html {
   background-color: #f9f9f9;
 }
 
+<<<<<<< HEAD
+.view {
+    display: none
+}
+=======
 nav {
   background-color: #fff;
   padding: 10px;
@@ -60,3 +65,6 @@ nav button:hover {
   }
 }
 
+img:hover {
+  animation: wiggle 0.5s ease-in-out infinite;
+}
