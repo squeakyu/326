@@ -1,2 +1,1 @@
-
-const j = 0;
+const test = "hello";
