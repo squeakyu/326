@@ -1,3 +1,5 @@
+import db from 'db.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     function navigate(viewId) {
         // Hide all views
