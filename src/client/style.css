@@ -195,3 +195,34 @@ nav button:hover {
         background: rgba(0, 0, 0, 0.1);
     }
 }
+.workout-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .workout-table th,
+  .workout-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .workout-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .workout-table tr:hover {
+    background-color: #f2f2f2;
+  }
+  
+  button {
+    padding: 6px 12px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
