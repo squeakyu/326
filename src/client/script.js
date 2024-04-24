@@ -222,17 +222,18 @@ document.addEventListener('DOMContentLoaded', () => {
     //     { y: '2024', a: 160, b: 95}
     //   ],
     var data = [
-        { y: '2014', a: 50},
-        { y: '2015', a: 65},
-        { y: '2016', a: 50},
-        { y: '2017', a: 75},
-        { y: '2018', a: 80},
-        { y: '2019', a: 90},
-        { y: '2020', a: 100},
-        { y: '2021', a: 115},
-        { y: '2022', a: 120},
-        { y: '2023', a: 145},
-        { y: '2024', a: 160}
+        { y: '2024-01', a: 50},
+        { y: '2024-02', a: 65},
+        { y: '2024-03', a: 50},
+        { y: '2024-04', a: 75},
+        { y: '2024-05', a: 80},
+        { y: '2024-06', a: 90},
+        { y: '2024-07', a: 100},
+        { y: '2024-08', a: 115},
+        { y: '2024-09', a: 120},
+        { y: '2024-10', a: 145},
+        { y: '2024-11', a: 160},
+        {y: '2024-12', a: 150}
       ],
       config = {
         data: data,
@@ -259,11 +260,12 @@ document.addEventListener('DOMContentLoaded', () => {
     Morris.Donut({
     element: 'pie-chart',
     data: [
-      {label: "Push Day", value: 30},
-      {label: "Pull Day", value: 15},
+      {label: "Push Day", value: 65},
+      {label: "Pull Day", value: 50},
       {label: "Cardio", value: 45},
       {label: "Leg Day", value: 10}
-    ]
+    ],
+    // resize = true
     });
     
     window.wt = wt;
