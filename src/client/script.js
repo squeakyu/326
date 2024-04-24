@@ -19,6 +19,18 @@ document.addEventListener('DOMContentLoaded', () => {
         .getElementById('about')
         .addEventListener('click', () => navigate('aboutView'));
 
+    document.getElementById('viewWorkoutBtn').addEventListener('click', ()=> {
+        const workouts = [
+            { id: 1, name: 'Workout 1' },
+            { id: 2, name: 'Workout 2' },
+            { id: 3, name: 'Workout 3' }
+          ];
+          navigate('viewWorkoutView')
+          const viewWorkout = new ViewWorkouts(workouts);
+          console.log(viewWorkout.workouts)
+          viewWorkout.render();
+     });
+
     // Initialize with the home view
     navigate('homeView');
 
@@ -192,6 +204,69 @@ document.addEventListener('DOMContentLoaded', () => {
     const wt = new WorkoutTracker(app);
     
     window.wt = wt;
+
+    class ViewWorkouts {
+        constructor(workouts) {
+          this.workouts = workouts;
+          this.container = document.getElementById('workoutTableContainer');
+        }
+      
+        render() {
+          // Clear container before rendering
+          this.clearContainer();
+            console.log('begin render')
+          // Create table element
+          const table = document.createElement('table');
+          table.classList.add('workout-table');
+      
+          // Create table header
+          const headerRow = document.createElement('tr');
+          const headers = ['Workout Name', 'View', 'Edit'];
+          headers.forEach(headerText => {
+            const th = document.createElement('th');
+            th.textContent = headerText;
+            headerRow.appendChild(th);
+          });
+          table.appendChild(headerRow);
+      
+          // Create table rows
+          this.workouts.forEach(workout => {
+            const row = document.createElement('tr');
+            const nameCell = document.createElement('td');
+            nameCell.textContent = workout.name;
+      
+            const viewButtonCell = document.createElement('td');
+            const viewButton = document.createElement('button');
+            viewButton.textContent = 'View';
+            viewButton.addEventListener('click', () => {
+              // Handle view button click
+            });
+            viewButtonCell.appendChild(viewButton);
+      
+            const editButtonCell = document.createElement('td');
+            const editButton = document.createElement('button');
+            editButton.textContent = 'Edit';
+            editButton.addEventListener('click', () => {
+              // Handle edit button click
+            });
+            editButtonCell.appendChild(editButton);
+      
+            row.appendChild(nameCell);
+            row.appendChild(viewButtonCell);
+            row.appendChild(editButtonCell);
+      
+            table.appendChild(row);
+            console.log('end render')
+          });
+      
+          // Append table to container
+          this.container.appendChild(table);
+        }
+      
+        clearContainer() {
+          this.container.innerHTML = '';
+        }
+      }
 });
 
 
