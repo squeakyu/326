@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    // document.getElementById('loginForm').addEventListener('submit', function(event) {
+    //     event.preventDefault(); 
+    
+        
+    //     window.location.href = 'index.html';
+    // });
+
     function navigate(viewId) {
         // Hide all views
         document.querySelectorAll('.view').forEach((view) => {
@@ -8,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Show the requested view
         document.getElementById(viewId).style.display = 'block';
     }
-
+    
     document
         .getElementById('home')
         .addEventListener('click', () => navigate('homeView'));
