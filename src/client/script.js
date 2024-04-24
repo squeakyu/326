@@ -1,3 +1,5 @@
+import db from 'db.js';
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // document.getElementById('loginForm').addEventListener('submit', function(event) {
