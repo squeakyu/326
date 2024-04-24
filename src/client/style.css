@@ -63,8 +63,12 @@ nav button:hover {
     }
 }
 
-<<<<<<< HEAD ======= img:hover {
-    animation: wiggle 0.5s ease-in-out infinite;
+#area-chart,
+#line-chart,
+#bar-chart,
+#stacked,
+#pie-chart{
+  min-height: 250px;
 }
 
 #profilecard {
@@ -195,3 +199,4 @@ nav button:hover {
         background: rgba(0, 0, 0, 0.1);
     }
 }
+

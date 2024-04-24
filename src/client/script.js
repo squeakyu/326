@@ -18,6 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document
         .getElementById('about')
         .addEventListener('click', () => navigate('aboutView'));
+    document
+        .getElementById('workout')
+        .addEventListener('click', () => navigate('workoutView'));
 
     // Initialize with the home view
     navigate('homeView');
@@ -190,8 +193,67 @@ document.addEventListener('DOMContentLoaded', () => {
     const app = document.getElementById('app');
     
     const wt = new WorkoutTracker(app);
+
+
+    //charts page
+    // var data = [
+    //     { y: '2014', a: 50, b: 90},
+    //     { y: '2015', a: 65,  b: 75},
+    //     { y: '2016', a: 50,  b: 50},
+    //     { y: '2017', a: 75,  b: 60},
+    //     { y: '2018', a: 80,  b: 65},
+    //     { y: '2019', a: 90,  b: 70},
+    //     { y: '2020', a: 100, b: 75},
+    //     { y: '2021', a: 115, b: 75},
+    //     { y: '2022', a: 120, b: 85},
+    //     { y: '2023', a: 145, b: 85},
+    //     { y: '2024', a: 160, b: 95}
+    //   ],
+    var data = [
+        { y: '2014', a: 50},
+        { y: '2015', a: 65},
+        { y: '2016', a: 50},
+        { y: '2017', a: 75},
+        { y: '2018', a: 80},
+        { y: '2019', a: 90},
+        { y: '2020', a: 100},
+        { y: '2021', a: 115},
+        { y: '2022', a: 120},
+        { y: '2023', a: 145},
+        { y: '2024', a: 160}
+      ],
+      config = {
+        data: data,
+        xkey: 'y',
+        ykeys: ['a'],
+        labels: ['Body Weight', 'Total Outcome'],
+        fillOpacity: 0.6,
+        hideHover: 'auto',
+        behaveLikeLine: true,
+        resize: true,
+        pointFillColors:['#ffffff'],
+        pointStrokeColors: ['black'],
+        lineColors:['gray','red']
+    };
+    config.element = 'area-chart';
+    Morris.Area(config);
+    config.element = 'line-chart';
+    Morris.Line(config);
+    // config.element = 'bar-chart';
+    // Morris.Bar(config);
+    // config.element = 'stacked';
+    // config.stacked = true;
+    // Morris.Bar(config);
+    Morris.Donut({
+    element: 'pie-chart',
+    data: [
+      {label: "Push Day", value: 30},
+      {label: "Pull Day", value: 15},
+      {label: "Cardio", value: 45},
+      {label: "Leg Day", value: 10}
+    ]
+    });
     
-    window.wt = wt;
 });
 
 
