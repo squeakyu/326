@@ -1,70 +1,197 @@
 body,
 html {
-  margin-left: 200px;
-  margin-right: 200px;
-  margin-top: 20px;
-  margin-bottom: 50%;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 20px;
+    margin-bottom: 50%;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
 }
 
-<<<<<<< HEAD
-.view {
-    display: none
+<<<<<<< HEAD .view {
+    display: none;
 }
-=======
-nav {
-  background-color: #fff;
-  padding: 10px;
-  text-align: center;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+======= nav {
+    background-color: #fff;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 nav button {
-  background-color: #007bff;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  margin: 0 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 nav button:hover {
-  background-color: #0056b3;
+    background-color: #0056b3;
 }
 
 #views {
-  padding: 20px;
-  text-align: left;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .view {
-  display: none;
-  /* Hide all views by default */
+    display: none;
+    /* Hide all views by default */
 }
 
 @keyframes wiggle {
-  0% {
-    transform: rotate(-5deg);
-  }
+    0% {
+        transform: rotate(-5deg);
+    }
 
-  50% {
-    transform: rotate(5deg);
-  }
+    50% {
+        transform: rotate(5deg);
+    }
 
-  100% {
-    transform: rotate(-5deg);
-  }
+    100% {
+        transform: rotate(-5deg);
+    }
 }
 
 img:hover {
-  animation: wiggle 0.5s ease-in-out infinite;
+    animation: wiggle 0.5s ease-in-out infinite;
+}
+
+#profilecard {
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: auto;
+        text-align: center;
+    }
+
+    .title {
+        color: grey;
+        font-size: 18px;
+    }
+
+    button {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+    }
+
+    a {
+        text-decoration: none;
+        font-size: 22px;
+        color: black;
+    }
+
+    button:hover,
+    a:hover {
+        opacity: 0.7;
+    }
+}
+
+#app {
+    .tracker {
+        font-size: 14px;
+        border-collapse: collapse;
+        width: 600px;
+    }
+
+    .tracker,
+    .tracker * {
+        font-family: sans-serif;
+    }
+
+    .tracker th {
+        font-size: 1.15em;
+        text-align: left;
+        font-weight: normal;
+        color: #ffffff;
+        background: #009578;
+    }
+
+    .tracker th,
+    .tracker td {
+        padding: 0.75em;
+    }
+
+    .tracker__entries .tracker__row {
+        background: #eeeeee;
+    }
+
+    .tracker__entries .tracker__row:nth-child(odd) {
+        background: #dddddd;
+    }
+
+    .tracker__date,
+    .tracker__workout,
+    .tracker__duration {
+        display: inline-block;
+        box-sizing: border-box;
+        font-size: 1em;
+        height: 2.5em;
+        padding: 0.5em 0;
+        border: none;
+        outline: none;
+        background: none;
+    }
+
+    .tracker__duration {
+        width: 5em;
+        text-align: right;
+    }
+
+    .tracker__button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        border: none;
+        border-radius: 50%;
+        outline: none;
+        color: red;
+        font-size: 1.5em;
+        margin-left: 0.5em;
+        cursor: pointer;
+    }
+
+    .tracker__button:hover {
+        background: rgba(0, 0, 0, 0.1);
+    }
+
+    .tracker__row--add {
+        border-top: 3px solid #333333;
+        border-bottom: 3px solid #333333;
+        background: #ffffff;
+    }
+
+    .tracker__row--add td {
+        text-align: right;
+    }
+
+    .tracker__add {
+        display: inline-block;
+        padding: 0.8em 1em;
+        color: green;
+        cursor: pointer;
+    }
+
+    .tracker__add:hover {
+        background: rgba(0, 0, 0, 0.1);
+    }
 }
