@@ -12,6 +12,13 @@ html {
 .view {
     display: none;
 }
+
+.logo {
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 nav {
     background-color: #fff;
     padding: 10px;
