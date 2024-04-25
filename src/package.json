@@ -30,8 +30,11 @@
     "Steven Tan, steventan@umass.edu"
   ],
   "scripts": {
-    "milestone-01": "http-server src/docs/milestone-01 -p 3000 -c-1 -o -s",
+    "start": "http-server -a localhost -p 8080 src/client/login.html",
     "dev": "",
     "test": ""
+  },
+  "dependencies": {
+    "http-server": "^14.1.1"
   }
 }
