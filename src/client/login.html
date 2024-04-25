@@ -5,11 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FitTrac</title>
 <link rel="stylesheet" href="login.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pouchdb/7.2.2/pouchdb.min.js"></script>
 <script>
-function loginToHome() {
-    window.location.href='index.html'
+    const db = new PouchDB('fittrac');
+
+async function loginToHome() {
+    let usernameValue = document.getElementById('username').value;
+    let userData = {
+        "_id": new Date().toISOString(), 
+        "username": usernameValue
+    };
+
+    try {
+        const response = await db.put(userData);
+        console.log('User data saved to PouchDB:', response);
+        
+       
+        localStorage.setItem('username', usernameValue);
+
+        window.location.replace('index.html');
+    } catch (error) {
+        console.error('Error saving user data to PouchDB:', error);
+    }
 }
-// console.log(document.getElementById('username'));
+</script>
+<script type = "module" src = "db.js" >
+    db.put(userData)
 </script>
 
 </head>

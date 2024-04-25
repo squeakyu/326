@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-
+    
     function navigate(viewId) {
         // Hide all views
         document.querySelectorAll('.view').forEach((view) => {
@@ -334,7 +333,10 @@ document.addEventListener('DOMContentLoaded', () => {
           this.container.innerHTML = '';
         }
       }
+
+      
 });
+
 
 
 
