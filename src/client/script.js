@@ -1,13 +1,5 @@
-import db from 'db.js';
-
 document.addEventListener('DOMContentLoaded', () => {
 
-    // document.getElementById('loginForm').addEventListener('submit', function(event) {
-    //     event.preventDefault(); 
-    
-        
-    //     window.location.href = 'index.html';
-    // });
 
     function navigate(viewId) {
         // Hide all views

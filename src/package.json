@@ -2,7 +2,7 @@
   "name": "FitMewers",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "login.html",
   "type": "module",
   "license": "AGPL-version-3.0",
   "private": false,

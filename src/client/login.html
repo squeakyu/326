@@ -5,7 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FitTrac</title>
 <link rel="stylesheet" href="login.css">
-<script type="module" src="script.js"></script>
+<script>
+function loginToHome() {
+    window.location.href='index.html'
+}
+// console.log(document.getElementById('username'));
+</script>
+
 </head>
 <body>
 <section id="login">
@@ -15,7 +21,7 @@
             <label for="username">What is your name?</label>
             <input type="text" id="username" name="username" required>
         </div>
-        <button type="submit">Enter</button>
+        <button type="button" onclick = "loginToHome()">Enter</button>
     </form>
 </section>
 
