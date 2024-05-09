@@ -7,14 +7,12 @@
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://cdn.oesmith.co.uk/morris-0.5.1.css'>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js">
-    </script>
-    
-
+    <script src="script.js"></script>
+    <script src="tracker.js"></script>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.0/morris.min.js'></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pouchdb/7.2.2/pouchdb.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
      const db = new PouchDB('fittrac');
 
@@ -60,24 +58,7 @@ loadUsername();
                 <meta charset=utf-8 />
                 </head>
                 <body>
-                  <h2 class="text-primary text-center">
-                    Current Progress
-                  </h2>
-                  <div class="row">
-                    <div class="col-sm-6 text-center">
-                        <label class="label label-success">Body Weight</label>
-                        <div id="area-chart" ></div>
-                    </div>
-                    <div class="col-sm-6 text-center">
-                       <label class="label label-success">Body Weight</label>
-                      <div id="line-chart"></div>
-                    </div>
-                    <div class="col-sm-6 col-sm-offset-3 text-center">
-                       <label class="label label-success">Workout Counter</label>
-                      <div id="pie-chart" ></div>
-                    </div>
-                    
-                  </div>
+                  <div id="chart"></div>
                 </body>
         </div>
         <div id="profileView" class="view" style="display:none">
