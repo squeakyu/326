@@ -30,13 +30,13 @@
     "Steven Tan, steventan@umass.edu"
   ],
   "scripts": {
-    "start": "node_modules/.bin/http-server -a localhost -p 8000 -o ./src/client/login.html",
-    "dev": "",
+    "start": "node src/client/server.js",
+    "dev": "",  
     "test": ""
   },
   "dependencies": {
-    "chart.js": "^4.4.2",
     "express": "^4.19.2",
-    "http-server": "^14.1.1"
+    "http-server": "^14.1.1",
+    "morgan": "^1.10.0"
   }
 }

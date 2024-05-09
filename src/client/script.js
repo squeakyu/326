@@ -23,19 +23,58 @@ document.addEventListener('DOMContentLoaded', () => {
         .getElementById('workout')
         .addEventListener('click', () => navigate('workoutView'));
 
+    let viewWorkout;
     document.getElementById('viewWorkoutBtn').addEventListener('click', ()=> {
-        const workouts = [
-            { id: 1, name: 'Workout 1' },
-            { id: 2, name: 'Workout 2' },
-            { id: 3, name: 'Workout 3' }
-          ];
-          navigate('viewWorkoutView')
-          const viewWorkout = new ViewWorkouts(workouts);
-          console.log(viewWorkout.workouts)
-          viewWorkout.render();
-     });
+            navigate('viewWorkoutView')
+            
+            const storedWorkouts = localStorage.getItem('workouts');
 
-    // Initialize with the home view
+            if (storedWorkouts && storedWorkouts !== 'undefined'&& storedWorkouts !== null) {
+                viewWorkout = new ViewWorkouts(JSON.parse(storedWorkouts));
+            } else {
+                viewWorkout = new ViewWorkouts([]);
+            }
+
+            viewWorkout.render();
+        });
+
+        window.addEventListener('beforeunload', () => {
+            localStorage.setItem('workouts', JSON.stringify(viewWorkout.workouts));
+        });
+    
+        document.getElementById('createWorkoutBtn').addEventListener('click', () =>{
+            navigate('createWorkoutView');
+        });
+
+        let workout;
+    document.getElementById('saveExerciseBtn').addEventListener('click', () =>{
+        let exerciseTable;
+        const name = document.getElementById('wor').value;
+        const exName = document.getElementById('exe').value;
+        const sets = document.getElementById('sets').value;
+        const reps = document.getElementById('re').value;
+        const weight = document.getElementById('weight').value;
+
+        if(!workout){
+            workout = new Workout();
+        }
+        workout.name = name;
+        workout.addExercise(exName,sets, weight, reps)
+        exerciseTable = new ExerciseTable(workout.exercise)
+        exerciseTable.render()
+    })
+
+    document.getElementById('saveWorkoutBtn').addEventListener('click', ()=>{
+        
+        document.getElementById('exerciseTableContainer').innerHTML = '';
+        viewWorkout.addWorkout(workout)
+        localStorage.setItem('workouts', JSON.stringify(viewWorkout.workouts));
+        workout = null
+        navigate('viewWorkoutView')
+        viewWorkout.render()
+    })
+
+
     navigate('homeView');
 
     // Assuming your images are within a container with the class
@@ -116,16 +155,17 @@ document.addEventListener('DOMContentLoaded', () => {
           this.workouts = workouts;
           this.container = document.getElementById('workoutTableContainer');
         }
+        addWorkout(workout){
+            this.workouts.push(workout)
+        }
       
         render() {
-          // Clear container before rendering
           this.clearContainer();
-            console.log('begin render')
-          // Create table element
+
+
           const table = document.createElement('table');
           table.classList.add('workout-table');
-      
-          // Create table header
+
           const headerRow = document.createElement('tr');
           const headers = ['Workout Name', 'View', 'Edit'];
           headers.forEach(headerText => {
@@ -135,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
           });
           table.appendChild(headerRow);
       
-          // Create table rows
+  
           this.workouts.forEach(workout => {
             const row = document.createElement('tr');
             const nameCell = document.createElement('td');
@@ -145,7 +185,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const viewButton = document.createElement('button');
             viewButton.textContent = 'View';
             viewButton.addEventListener('click', () => {
-              // Handle view button click
             });
             viewButtonCell.appendChild(viewButton);
       
@@ -153,7 +192,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const editButton = document.createElement('button');
             editButton.textContent = 'Edit';
             editButton.addEventListener('click', () => {
-              // Handle edit button click
             });
             editButtonCell.appendChild(editButton);
       
@@ -162,10 +200,8 @@ document.addEventListener('DOMContentLoaded', () => {
             row.appendChild(editButtonCell);
       
             table.appendChild(row);
-            console.log('end render')
           });
       
-          // Append table to container
           this.container.appendChild(table);
         }
       
@@ -173,6 +209,113 @@ document.addEventListener('DOMContentLoaded', () => {
           this.container.innerHTML = '';
         }
       }
+
+      class Exercise {
+        constructor(name, sets, weight, reps) {
+          this.name = name;
+          this.sets = sets;
+          this.weight = weight;
+          this.reps = reps;
+        }
+      }
+      
+      class Workout {
+        constructor(name) {
+          this.name = name;
+          this.exercises = [];
+        }
+      
+        addExercise(name, sets, weight, reps) {
+          const exercise = new Exercise(name, sets, weight, reps);
+          this.exercises.push(exercise);
+        }
+      
+        getWorkout() {
+          return {
+            name: this.name,
+            exercises: this.exercises.map(exercise => ({
+              name: exercise.name,
+              sets: exercise.sets,
+              weight: exercise.weight,
+              reps: exercise.reps
+            }))
+          };
+        }
+      }
+      
+      class ExerciseTable {
+          constructor(workouts) {
+              this.workouts = workouts;
+              this.container = document.getElementById('exerciseTableContainer');
+          }
+      
+          render() {
+            this.clearContainer();
+            const table = document.createElement('table');
+            table.classList.add('exercise-table');
+        
+            const headerRow = document.createElement('tr');
+            const headers = ['Workout Name', 'Exercise Name', 'Sets', 'Reps' ,'Weight', '']; // Removed 'Reps' header
+            headers.forEach(headerText => {
+                const th = document.createElement('th');
+                th.textContent = headerText;
+                headerRow.appendChild(th);
+            });
+            table.appendChild(headerRow);
+        
+            
+                workout.exercises.forEach(exercise => {
+                    const row = document.createElement('tr');
+                    const nameCell = document.createElement('td');
+                    nameCell.textContent = workout.name;
+        
+                    const exNameCell = document.createElement('td');
+                    exNameCell.textContent = exercise.name;
+        
+                    const setsCell = document.createElement('td');
+                    setsCell.textContent = exercise.sets;
+        
+                    const weightCell = document.createElement('td');
+                    weightCell.textContent = exercise.weight;
+
+                    const repsCell = document.createElement('td');
+                    repsCell.textContent = exercise.reps;
+        
+                    const actionsCell = document.createElement('td');
+                    const deleteButton = document.createElement('button');
+                    deleteButton.textContent = 'Delete';
+                    deleteButton.addEventListener('click', () => {
+                        this.deleteExercise(workout, exercise);
+                        this.render();
+                    });
+                    actionsCell.appendChild(deleteButton);
+        
+                    row.appendChild(nameCell);
+                    row.appendChild(exNameCell);
+                    row.appendChild(setsCell);
+                    row.appendChild(weightCell);
+                    row.appendChild(repsCell)
+                    row.appendChild(actionsCell);
+                    table.appendChild(row);
+                });
+            
+            this.container.appendChild(table);
+        }
+      
+          clearContainer() {
+                while (this.container.firstChild) {
+                    this.container.removeChild(this.container.firstChild);
+                }
+          }
+      
+          deleteExercise(workout, exercise) {
+              const index = workout.exercises.indexOf(exercise);
+              if (index !== -1) {
+                  workout.exercises.splice(index, 1);
+              }
+          }
+      }
+      
 
       
 });
