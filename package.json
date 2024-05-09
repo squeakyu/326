@@ -1,0 +1,38 @@
+{
+  "name": "FitMewers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "license": "AGPL-version-3.0",
+  "private": false,
+  "engines": {
+    "node": ">= 14.0.0",
+    "npm": ">= 6.0.0"
+  },
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/squeakyu/326"
+  },
+  "bugs": "",
+  "keywords": [],
+  "author": {
+    "name": "",
+    "email": "",
+    "url": ""
+  },
+  "contributors": [
+    "Willy Chen, willychen@umass.edu",
+    "Wesley Lathrop, wlathrop@umass.edu",
+    "Matthew Chung, matthewchung@umass.edu",
+    "Richard Lu, richardlu@umass.edu",
+    "Steven Tan, steventan@umass.edu"
+  ],
+  "scripts": {
+    "start": "node_modules/.bin/http-server -a localhost -p 8000 -o ./src/client/login.html"
+  },
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}
