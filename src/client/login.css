@@ -6,7 +6,7 @@ body {
     flex-direction: column;
     align-items: center;
     background-color: #f7f7f7;
-    background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+    background: linear-gradient(to right, hsl(269, 85%, 43%) 0%, #2575fc 100%);
 }
 
 #login {
