@@ -81,21 +81,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         loadEntries() {
-            // Fetch all documents from the database
+            // Fetch the document from the database
             this.db.get('workout-entries')
                 .then(doc => {
                     if (doc.entries) {
+                        // If the document exists and has entries, update the entries array
                         this.entries = doc.entries;
-                        // Update the view after loading entries
+                        // Update the view and chart after loading entries
                         this.updateView();
-                        // Update the chart after loading entries
                         this.updateChart();
+                    } else {
+                        // If the document exists but has no entries, handle it accordingly
+                        console.warn('Document exists but has no entries.');
+                        // You might choose to initialize the document with an empty array here
+                        // Alternatively, you can handle this case based on your application logic
                     }
                 })
                 .catch(error => {
-                    console.error('Error loading entries from PouchDB', error);
+                    // Handle document not found error
+                    if (error.status === 404) {
+                        console.warn('Document not found.');
+                        // You might choose to create the document with an empty array here
+                        // Alternatively, you can handle this case based on your application logic
+                    } else {
+                        // Handle other errors
+                        console.error('Error loading entries from PouchDB', error);
+                    }
                 });
         }
+        
 
         saveEntries() {
             // Fetch the latest revision of the document
@@ -110,9 +124,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     this.updateChart();
                 })
                 .catch(error => {
-                    console.error('Error saving entries to PouchDB:', error);
+                    // Handle document not found error
+                    if (error.status === 404) {
+                        console.warn('Document not found. Creating a new document...');
+                        // Create a new document with an empty array of entries
+                        return this.db.put({ _id: 'workout-entries', entries: this.entries });
+                    } else {
+                        // Handle other errors
+                        console.error('Error saving entries to PouchDB:', error);
+                    }
                 });
         }
+        
 
         updateView() {
             const tableBody = this.root.querySelector(".tracker__entries");
