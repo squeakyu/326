@@ -30,7 +30,7 @@
     "Steven Tan, steventan@umass.edu"
   ],
   "scripts": {
-    "milestone-02": "http-server -a localhost -p 8080 src/client/login.html",
+    "start": "node_modules/.bin/http-server -a localhost -p 8000 -o ./src/client/login.html",
     "dev": "",
     "test": ""
   },
