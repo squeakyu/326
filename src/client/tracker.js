@@ -220,12 +220,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         updateChart() {
-            // Get workout durations from entries
-            const workoutDurations = this.entries.map(entry => entry.duration);
-            
             // Update data of the existing bar chart
+            const workoutDates = this.entries.map(entry => entry.date);
+            const workoutDurations = this.entries.map(entry => entry.duration);
             this.chart.data.datasets[0].data = workoutDurations;
-            this.chart.data.labels = Array.from({ length: workoutDurations.length }, (_, i) => `Entry ${i + 1}`);
+            this.chart.data.labels = workoutDates;
             this.chart.update();
         
             // Update pie chart data
@@ -234,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 workoutTypes[entry.workout] = (workoutTypes[entry.workout] || 0) + 1;
             });
         
-            this.pieChart.data.labels = Object.keys(workoutTypes);
+            this.pieChart.data.labels = workoutDates;
             this.pieChart.data.datasets[0].data = Object.values(workoutTypes);
             this.pieChart.update();
         }

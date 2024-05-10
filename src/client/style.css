@@ -6,7 +6,14 @@ html {
     margin-bottom: 50%;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    background-color: ;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .view {
@@ -20,27 +27,24 @@ html {
   width: 50%;
 }
 nav {
-    background-color: #fff;
-    padding: 10px;
-    text-align: center;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    background-color: #007bff; /* Background color */
+    width: 100%; /* Fill the entire width of the screen */
+    display: flex;
+    justify-content: space-around; /* Align buttons evenly */
+    padding: 10px 0
 }
 
 nav button {
-    background-color: #007bff;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    margin: 0 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    color: white; /* Text color */
+    background-color: #007bff; /* Button background color */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Add padding */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s ease; 
 }
 
 nav button:hover {
-    background-color: #0056b3;
+    background-color: #777;
 }
 
 #views {
@@ -49,11 +53,12 @@ nav button:hover {
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1;
 }
 
 .view {
     display: none;
-    /* Hide all views by default */
+    flex: 1;
 }
 
 @keyframes wiggle {
@@ -83,6 +88,11 @@ nav button:hover {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         max-width: 300px;
         margin: auto;
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
         text-align: center;
     }
 
@@ -133,7 +143,7 @@ nav button:hover {
         text-align: left;
         font-weight: normal;
         color: #ffffff;
-        background: #009578;
+        background: #007bff;
     }
 
     .tracker th,
