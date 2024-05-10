@@ -220,11 +220,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         updateChart() {
-            // Update data of the existing bar chart
-            const workoutDates = this.entries.map(entry => entry.date);
+            // Get workout durations from entries
             const workoutDurations = this.entries.map(entry => entry.duration);
+            
+            // Update data of the existing bar chart
             this.chart.data.datasets[0].data = workoutDurations;
-            this.chart.data.labels = workoutDates;
+            this.chart.data.labels = Array.from({ length: workoutDurations.length }, (_, i) => `Entry ${i + 1}`);
             this.chart.update();
         
             // Update pie chart data
@@ -233,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 workoutTypes[entry.workout] = (workoutTypes[entry.workout] || 0) + 1;
             });
         
-            this.pieChart.data.labels = workoutDates;
+            this.pieChart.data.labels = Object.keys(workoutTypes);
             this.pieChart.data.datasets[0].data = Object.values(workoutTypes);
             this.pieChart.update();
         }
@@ -259,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
             datasets: [{
                 label: 'Workout Durations',
                 data: workoutDurations,
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                backgroundColor: 'rgba(54, 162, 235, 1)',
                 borderColor: 'rgba(54, 162, 235, 1)',
                 borderWidth: 1
             }]
@@ -271,7 +272,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         beginAtZero: true
                     }
                 }]
-            }
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Workout Duration Progress',
+                }
+
+            },
         }
     });
     // Create canvas element for pie chart
@@ -292,12 +300,12 @@ document.addEventListener('DOMContentLoaded', () => {
             label: 'Workout Types',
             data: Object.values(workoutTypes),
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
             ],
             borderColor: [
                 'rgba(255, 99, 132, 1)',
@@ -307,7 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 'rgba(153, 102, 255, 1)',
                 'rgba(255, 159, 64, 1)'
             ],
-            borderWidth: 1
+            borderWidth: 0
         }]
     };
     
@@ -317,13 +325,18 @@ document.addEventListener('DOMContentLoaded', () => {
         data: pieData,
         options: {
             responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Workout Types Tracker',
+                }
+            },
             legend: {
                 position: 'bottom',
             },
-            title: {
-                display: true,
-                text: 'Workout Types'
-            }
         }
     });
 
