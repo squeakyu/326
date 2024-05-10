@@ -13,6 +13,12 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js'></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pouchdb/7.2.2/pouchdb.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.min.css' rel='stylesheet' />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.min.css' rel='stylesheet' />
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.min.js'></script>
+
 <script>
      const db = new PouchDB('fittrac');
 
@@ -47,14 +53,13 @@ loadUsername();
         <button id="home">Dashboard</button>
         <button id="workout">Log a Workout</button>
         <button id="viewWorkoutBtn">View Workouts</button>
-        <button id="profile">Profile</button>
+        <button id="calendar">Calendar</button>
         <button id="about">About</button>
     </nav>
 
     <div id="views">
         <div id="homeView" class="view">
             <h1 id = "welcome"></h1>
-            <h2 class="chart-label">Workout Analytics</h2>
             <body>
                 <head>
                 <meta charset=utf-8 />
@@ -63,20 +68,8 @@ loadUsername();
                   <div id="chart"></div>
                 </body>
         </div>
-        <div id="profileView" class="view" style="display:none">
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-        <div class="card" id = "profilecard">
-          <img src="./Richard.jpg" alt="John"  style="width: 25%; height: 25%" >
-          <h1>John Doe</h1>
-          <p class="title">CEO & Founder, Example</p>
-          <p>Harvard University</p>
-          <a href="#"><i class="fa fa-dribbble"></i></a>
-          <a href="#"><i class="fa fa-twitter"></i></a>
-          <a href="#"><i class="fa fa-linkedin"></i></a>
-          <a href="#"><i class="fa fa-facebook"></i></a>
-          <p><button>Logout</button></p>
-        </div>
+        <div id="calendarView" class="view" style="display:none">
+            <div id='calendarWorkout'></div>
       </div>
       <div id="aboutView" class="view" style="display:none">
           <h1>How to Use</h1>
@@ -96,7 +89,8 @@ loadUsername();
       </div>
   </div>
   </div>
-    <script src="script.js"></script>
     <script type="module" src="db.js"></script> 
 </body>
 </html>
+
+
