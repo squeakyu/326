@@ -267,11 +267,11 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         options: {
             scales: {
-                yAxes: [{
+                y: {
                     ticks: {
                         beginAtZero: true
                     }
-                }]
+                }
             },
             plugins: {
                 title: {
