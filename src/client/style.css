@@ -257,5 +257,42 @@ nav button:hover {
     width: 100%;
     border-collapse: collapse;
   }
+  .exercise-table {
+    width: 100%; /* Fill the entire width */
+    border-collapse: collapse; /* Collapse borders */
+  }
   
-
+  .exercise-table th,
+  .exercise-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .exercise-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .exercise-table tr:hover {
+    background-color: #f2f2f2;
+  }
+  
+  button {
+    padding: 6px 12px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  .createExerciseContainer {
+    display: flex;
+    flex-direction: column;
+}
+.createExerciseContainer label, 
+.createExerciseContainer input {
+    margin-bottom: 10px; 
+}
