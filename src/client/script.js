@@ -9,22 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
       // Show the requested view
       document.getElementById(viewId).style.display = 'block';
   }
-  async function getAllWorkouts() {
-    return db.allDocs({include_docs: true}).then(result => 
-        result.rows.map(row => row.doc)
-    );
-}
-  async function updateCalendarEvents() {
-    const workouts = await getAllWorkouts(); 
-    calendar.removeAllEvents(); 
-    workouts.forEach(workout => {
-        calendar.addEvent({
-            title: `${workout.type} for ${workout.duration} min`,
-            start: workout.date,
-            allDay: true
-        });
-    });
-}
     
   document
       .getElementById('home')
@@ -352,24 +336,6 @@ let viewWorkout;
           navigate('viewWorkoutView')
           viewWorkout.render()
       })
-
-      document.getElementById('backBtn').addEventListener('click', ()=>{
-        navigate('viewWorkoutView');
-      })
-
-    
-        var calendarEl = document.getElementById('calendarWorkout');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            plugins: ['dayGrid'], // Include necessary plugins
-            initialView: 'dayGridMonth', // Set the initial view to show the month
-            events: [
-               
-                { title: 'Workout Session', start: new Date().toISOString().slice(0,10) } // Current date
-            ]
-        });
-        calendar.render();
-        window.calendar = calendar;
-        updateCalendarEvents(); 
 
 
   navigate('homeView');
