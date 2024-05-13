@@ -296,3 +296,34 @@ nav button:hover {
 .createExerciseContainer input {
     margin-bottom: 10px; 
 }
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); 
+    gap: 5px;
+}
+
+.calendar-day {
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.calendar-day.empty {
+    background: #eaeaea;
+}
+
+.calendar-day.selected {
+    background-color: #4CAF50; 
+}
+
+.calendar-header {
+    text-align: center;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+button {
+    margin: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
