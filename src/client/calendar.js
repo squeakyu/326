@@ -1,7 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     const calendarEl = document.getElementById('calendarWorkout');
     let currentDate = new Date();
-    const db = new PouchDB('workoutDates'); // Database for storing workout dates
+    const db = new PouchDB('workoutDates');
+
+    const indicator = document.createElement('div');
+    indicator.style.marginTop = '10px';
+    indicator.style.textAlign = 'center';
+    indicator.style.fontSize = '16px';
+    calendarEl.after(indicator);
 
     generateCalendar(calendarEl, currentDate);
 
@@ -36,40 +42,38 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    async function saveSelectedDay(year, month, day) {
+    async function toggleDaySelection(year, month, day) {
         const docId = `${year}-${month}`;
         try {
-            const doc = await db.get(docId);
-            doc.days.push(day);
-            await db.put({...doc, _rev: doc._rev});
-        } catch (error) {
-            if (error.name === 'not_found') {
-                await db.put({_id: docId, days: [day]});
-            } else {
-                console.error('Error updating PouchDB:', error);
+            let doc;
+            try {
+                doc = await db.get(docId);
+            } catch (error) {
+                if (error.name === 'not_found') {
+                    doc = { _id: docId, days: [] };
+                } else {
+                    throw error;
+                }
             }
-        }
-    }
-
-    async function removeSelectedDay(year, month, day) {
-        const docId = `${year}-${month}`;
-        try {
-            const doc = await db.get(docId);
             const index = doc.days.indexOf(day);
-            if (index > -1) {
+            if (index === -1) {
+                doc.days.push(day);
+            } else {
                 doc.days.splice(index, 1);
-                await db.put({...doc, _rev: doc._rev});
             }
+            await db.put(doc);
+            return doc.days.length; // Returns the updated length of days
         } catch (error) {
             console.error('Error updating PouchDB:', error);
         }
     }
 
     async function generateCalendar(calendarEl, currentDate) {
-        calendarEl.innerHTML = '';  // Clear existing calendar content
         const monthDays = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
         const firstDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1).getDay();
         const selectedDays = await loadSelectedDays(currentDate.getFullYear(), currentDate.getMonth());
+
+        updateIndicator(selectedDays.length, monthDays);  // Update the indicator with initial values
 
         const monthNames = ["January", "February", "March", "April", "May", "June",
                             "July", "August", "September", "October", "November", "December"];
@@ -79,6 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const header = document.createElement('div');
         header.className = 'calendar-header';
         header.innerText = `${currentMonthName} ${currentYear}`;
+        calendarEl.innerHTML = '';  // Clear existing calendar content
         calendarEl.appendChild(header);
 
         let daysHTML = '<div class="calendar-grid">';
@@ -91,20 +96,20 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         daysHTML += '</div>';
 
-        calendarEl.innerHTML += daysHTML;   
+        calendarEl.innerHTML += daysHTML;
 
         // Add click events to days
         document.querySelectorAll('.calendar-day:not(.empty)').forEach(dayEl => {
-            dayEl.addEventListener('click', function() {
+            dayEl.addEventListener('click', async function() {
                 const day = parseInt(this.getAttribute('data-day'), 10);
-                if (this.classList.contains('selected')) {
-                    this.classList.remove('selected');
-                    removeSelectedDay(currentDate.getFullYear(), currentDate.getMonth(), day);
-                } else {
-                    this.classList.add('selected');
-                    saveSelectedDay(currentDate.getFullYear(), currentDate.getMonth(), day);
-                }
+                this.classList.toggle('selected');  // Update UI immediately
+                const newCount = await toggleDaySelection(currentDate.getFullYear(), currentDate.getMonth(), day);
+                updateIndicator(newCount, monthDays);  // Update the indicator after DB update
             });
         });
+    }
+
+    function updateIndicator(selectedCount, totalDays) {
+        indicator.textContent = `Workout days selected: ${selectedCount} out of ${totalDays} days`;
     }
 });
