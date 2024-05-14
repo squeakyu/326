@@ -9,25 +9,24 @@
 <script>
     const db = new PouchDB('fittrac');
 
-async function loginToHome() {
-    let usernameValue = document.getElementById('username').value;
-    let userData = {
-        "_id": new Date().toISOString(), 
-        "username": usernameValue
-    };
+    async function loginToHome() {
+        let usernameValue = document.getElementById('username').value;
+        let userData = {
+            "_id": new Date().toISOString(), 
+            "username": usernameValue
+        };
 
-    try {
-        const response = await db.put(userData);
-        console.log('User data saved to PouchDB:', response);
-        
-       
-        localStorage.setItem('username', usernameValue);
+        try {
+            const response = await db.put(userData);
+            console.log('User data saved to PouchDB:', response);
+            
+            localStorage.setItem('username', usernameValue);
 
-        window.location.replace('index.html');
-    } catch (error) {
-        console.error('Error saving user data to PouchDB:', error);
+            window.location.replace('index.html');
+        } catch (error) {
+            console.error('Error saving user data to PouchDB:', error);
+        }
     }
-}
 </script>
 </head>
 <body>
@@ -38,9 +37,8 @@ async function loginToHome() {
             <label for="username">What is your name?</label>
             <input type="text" id="username" name="username" required>
         </div>
-        <button type="button" onclick = "loginToHome()">Enter</button>
+        <button type="button" onclick="loginToHome()">Enter</button>
     </form>
 </section>
-
 </body>
 </html>

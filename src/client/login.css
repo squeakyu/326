@@ -1,43 +1,71 @@
+/* General Body Styling */
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    background-color: #f7f7f7;
+    height: 100vh;
     background: linear-gradient(to right, hsl(269, 85%, 43%) 0%, #2575fc 100%);
 }
 
+/* Login Section Styling */
 #login {
-    background-color: #ffffff; 
+    background-color: #ffffff;
     padding: 40px;
     border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.05);
-    width: 340px;
-    margin-top: 50px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
 }
 
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Label Styling */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Input Styling */
 input {
     border: 1px solid #ddd;
     padding: 10px 15px;
     border-radius: 5px;
     width: calc(100% - 30px);
+    box-sizing: border-box;
     margin-bottom: 20px;
+    font-size: 16px;
 }
 
+/* Button Styling */
 button {
-    background-color: #5c67f2; 
-    color: #ffffff; 
+    background-color: #5c67f2;
+    color: #ffffff;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 20px;
     cursor: pointer;
     border-radius: 5px;
+    font-size: 16px;
     transition: background-color 0.3s, box-shadow 0.3s;
-} 
+    width: 100%;
+}
 
 button:hover {
     background-color: #4348d1;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* Heading Styling */
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
