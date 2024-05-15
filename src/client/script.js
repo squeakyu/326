@@ -337,6 +337,9 @@ let viewWorkout;
           viewWorkout.render()
       })
 
+    document.getElementById('backBtn').addEventListener('click', ()=>{
+        navigate('viewWorkoutView')
+    }
 
   navigate('homeView');
 
