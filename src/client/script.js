@@ -339,7 +339,7 @@ let viewWorkout;
 
     document.getElementById('backBtn').addEventListener('click', ()=>{
         navigate('viewWorkoutView')
-    }
+    });
 
   navigate('homeView');
 
