@@ -43,10 +43,15 @@ FitTrac/
 │   └── login.css
 │
 ├── js/                       # Additional JavaScript files
-│   └── workout.js            # Specific scripts for workout features
+│   ├── workout.js            # Scripts for workout features
+│   ├── calendar.js           # Calendar functionality for tracking workouts
+│   ├── server.js             # Server-side logic
+│   ├── db.js                 # Database interactions
+│   ├── tracker.js            # Tracking user activities and progress
 │
 └── assets/                   # Media files like images and icons
     └── images/
+
 
 ```
 
