@@ -1,6 +1,6 @@
 # FitTrac
 
-FitTrac is an interactive and comprehensive web application with the users’ goals in mind. No matter your fitness level or experience, this application will have utility for anyone ranging from casual gym goers, advanced powerlifters, or even aerobic athletes such as long-distance runners. This application will be designed to help users track their workouts, fitness activities, set fitness goals, and track their progress on visual charts over time. The platform will also include a social section where users can share their links with other users to share workouts and progress. We aim to provide a personalized experience for users to achieve their fitness goals, whether it be shedding some pounds, getting swole, or improving their aerobic endurance.
+FitTrac is an interactive and comprehensive web application with the users’ goals in mind. No matter your fitness level or experience, this application will have utility for anyone ranging from casual gym goers, advanced powerlifters, or even aerobic athletes such as long-distance runners. This application will be designed to help users track their workouts, fitness activities, set fitness goals, and track their progress on visual charts over time. We aim to provide a personalized experience for users to achieve their fitness goals, whether it be shedding some pounds, getting swole, or improving their aerobic endurance.
 
 
 ---
