@@ -10,19 +10,19 @@ FitTrac is an interactive and comprehensive web application with the users’ go
 
 FitTrac is a dynamic web application designed to help users monitor and manage their fitness journeys. With a user-friendly interface, FitTrac offers several functionalities through its multiple views, each tailored to different aspects of workout tracking and progress visualization.
 
-##Features
+# Features
 
 1. **Login Page**: Users are greeted by a login page upon launching the application. This initial interaction ensures user data privacy and personalization.
 
 2. **Dashboard**: Once logged in, users are directed to the dashboard. This central hub provides insightful visualizations of the user’s fitness progress:
-   - **Line and Area Charts**: Display weight progression over time, segmented by month.
    - **Pie Chart**: Offers a breakdown of workout types, with interactive hover features that detail more information.
+   - **Bar Graph**: Updates in real time to reflect the duration of each workout and the total number of workouts logged, giving users a quick overview of their activity levels.
 
 3. **Log a Workout**: Users can record new workouts by specifying the date, type of workout, and duration. This feature is designed to be quick and intuitive, encouraging regular use.
 
-4. **View Workouts**: This view allows users to track the progress toward their fitness goals, with options to review and edit previous entries. Each workout's impact on the overall goal, such as calories burned, is also displayed.
+4. **View Workouts**: This view allows users to track the progress toward their fitness goals, with options to review and edit previous entries.
 
-5. **Profile**: Users can access their personal profile page where they can manage their account details or log out.
+5. **Calender**: Integrates a visual calendar allowing users to track workout days. It highlights the days of the month on which the user exercised, providing a quick view of consistency and regularity in their fitness regime.
 
 6. **About**: Provides a detailed guide on how to effectively use the application and maximize its features to benefit the user's fitness journey.
 
@@ -47,10 +47,7 @@ FitTrac/
 │
 └── assets/                   # Media files like images and icons
     └── images/
+
 ```
-
-# Documentation
-
-For more detailed information about each component and view within the application, refer to the inline comments within each file. Additional documentation can be found in the `docs` folder, which includes comprehensive user guides and developer notes.
 
 ---
